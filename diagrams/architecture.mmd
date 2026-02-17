@@ -1,0 +1,26 @@
+%% Mermaid system architecture for Smart Blog Editor
+flowchart LR
+  subgraph FE [Frontend]
+    A[React + Lexical Editor]
+    B[aiService / api.js]
+  end
+
+  subgraph BE [Backend]
+    C[FastAPI]
+    D[ai_service: streaming / generate]
+    E[DB: posts, ai_usage]
+  end
+
+  subgraph AI [AI Provider]
+    F[External GenAI API]
+  end
+
+  A --> B
+  B --> C
+  C --> D
+  D --> F
+  C --> E
+  D --> E
+
+  classDef cloud fill:#f9f,stroke:#333,stroke-width:1px
+  class AI cloud

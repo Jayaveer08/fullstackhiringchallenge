@@ -1,0 +1,25 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Login from "./pages/Login"
+import Home from "./pages/Home"
+import ProtectedRoute from "./components/ProtectedRoute"
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* 🔓 Login Route */}
+        <Route path="/login" element={<Login />} />
+
+        {/* 🔐 Protected Home Route */}
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  )
+}
