@@ -1,6 +1,6 @@
 import useAIStore from "../store/useAIStore";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8000/api";
+const API_BASE = import.meta.env.VITE_API_BASE || "https://smart-blog-editor-onmc.onrender.com/api";
 
 export const streamAI = async (text, action, token) => {
   const { setGenerating, appendResult, clearResult, setError } =
